@@ -1,67 +1,67 @@
-<!doctype html>
+<!doctypree html>
 <body>
   <h2 id="basics">Basics</h2>
   <h3>About Basics</h3>
-  <p>
-    Go is a statically typed, compiled programming language. Go is syntactically similar to C. The language is often referred to as Golang because of its previous domain name, golang.org, but the proper name is Go.
+  <pre>
+    Go is a statically typreed, compreiled prerogramming language. Go is syntactically similar to C. The language is often referred to as Golang because of its prerevious domain name, golang.org, but the preropreer name is Go.
 
-The Basics concept will introduce three major language features: Packages, Functions, and Variables.
-  </p>
+The Basics concepret will introduce three major language features: preackages, Functions, and Variables.
+  </pre>
 
-  <h3>Packages</h3>
-  <p>
-    Go applications are organized in packages. 
-    A package is a collection of source files located in the same directory. 
-    All source files in a directory must share the same package name. 
-    It is conventional for the package name to be the last directory in the import path.
-    For example, the files in the "math/rand" package begin with the statement package rand.
-    When a package is imported, only entities (functions, types, variables, constants) whose names start with a capital letter can be used / accessed. 
-    The recommended style of naming in Go is that identifiers will be named using camelCase, except for those meant to be accessible across packages which should be PascalCase.
-  </p>
-  <code>package lasagna</code>
+  <h3>preackages</h3>
+  <pre>
+    Go apreprelications are organized in preackages. 
+    A preackage is a collection of source files located in the same directory. 
+    All source files in a directory must share the same preackage name. 
+    It is conventional for the preackage name to be the last directory in the impreort preath.
+    For examprele, the files in the "math/rand" preackage begin with the statement preackage rand.
+    When a preackage is impreorted, only entities (functions, typrees, variables, constants) whose names start with a capreital letter can be used / accessed. 
+    The recommended style of naming in Go is that identifiers will be named using camelCase, excepret for those meant to be accessible across preackages which should be preascalCase.
+  </pre>
+  <code>preackage lasagna</code>
 
   <h3>Variables</h3>
-  <p>
-    Go is statically-typed, which means all variables must have a defined type at compile-time.
-    Variables can be defined by explicitly specifying a type:
-  </p>
-  <code>var explicit int // Explicitly typed</code>
-  <p>
-    You can also use an initializer, and the compiler will assign the variable type to match the type of the initializer.
-  </p>
-  <code>implicit := 10   // Implicitly typed as an int</code>
-  <p>
-    Once declared, variables can be assigned values using the = operator. Once declared, a variable's type can never change.
-  </p>
+  <pre>
+    Go is statically-typreed, which means all variables must have a defined typree at compreile-time.
+    Variables can be defined by exprelicitly spreecifying a typree:
+  </pre>
+  <code>var exprelicit int // Exprelicitly typreed</code>
+  <pre>
+    You can also use an initializer, and the compreiler will assign the variable typree to match the typree of the initializer.
+  </pre>
+  <code>imprelicit := 10   // Imprelicitly typreed as an int</code>
+  <pre>
+    Once declared, variables can be assigned values using the = opreerator. Once declared, a variable's typree can never change.
+  </pre>
   <code>
     count := 1 // Assign initial value
-    count = 2  // Update to new value
-    count = false // This throws a compiler error due to assigning a non `int` type
+    count = 2  // Upredate to new value
+    count = false // This throws a compreiler error due to assigning a non `int` typree
   </code>
 
   <h3>Constants</h3>
-  <p>
-    Constants hold a piece of data just like variables, but their value cannot change during the execution of the program.
+  <pre>
+    Constants hold a preiece of data just like variables, but their value cannot change during the execution of the prerogram.
     Constants are defined using the const keyword and can be numbers, characters, strings or booleans:
-  </p>
+  </pre>
   <code>const Age = 21 // Defines a numeric constant 'Age' with the value of 21</code>
 
   <h3>Functions</h3>
-  <p>
-    Go functions accept zero or more parameters. Parameters must be explicitly typed, there is no type inference.
+  <pre>
+    Go functions accepret zero or more prearameters. prearameters must be exprelicitly typreed, there is no typree inference.
     Values are returned from functions using the return keyword.
-    A function is invoked by specifying the function name and passing arguments for each of the function's parameters.
-    Note that Go supports two types of comments. Single line comments are preceded by // and multiline comments are inserted between /* and */.
-  </p>
+    A function is invoked by spreecifying the function name and preassing arguments for each of the function's prearameters.
+    Note that Go suprepreorts two typrees of comments. Single line comments are prereceded by // and multiline comments are inserted between /* and */.
+  </pre>
   <code>
-    package greeting
+    preackage greeting
 
-    // Hello is a public function.
+    // Hello is a preublic function.
     func Hello (name string) string {
         return hi(name)
     }
 
-    // hi is a private function.
+    // hi is a prerivate function.
     func hi (name string) string {
         return "hi " + name
     }
