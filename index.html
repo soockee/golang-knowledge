@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+<body>
+
+<div w3-include-html="lessons/basics.html"></div> 
+<div w3-include-html="lessons/comments.html"></div> 
+<div w3-include-html="lessons/numbers.html"></div> 
+<div w3-include-html="lessons/arithmetic_operations.html"></div> 
+<div w3-include-html="lessons/booleans.html"></div> 
+<div w3-include-html="lessons/string_packages.html"></div> 
+<div w3-include-html="lessons/strings.html"></div> 
+<div w3-include-html="lessons/conditional_if.html"></div> 
+<div w3-include-html="lessons/comparision.html"></div> 
+<div w3-include-html="lessons/string_formatting.html"></div> 
+<div w3-include-html="lessons/packages.html"></div> 
+<div w3-include-html="lessons/slices.html"></div> 
+<div w3-include-html="lessons/variadic_functions.html"></div> 
+<div w3-include-html="lessons/conditionals_switch.html"></div> 
+<div w3-include-html="lessons/structs.html"></div> 
+<div w3-include-html="lessons/randomness.html"></div> 
+<div w3-include-html="lessons/for_loops.html"></div> 
+<div w3-include-html="lessons/functions.html"></div> 
+<div w3-include-html="lessons/floating_point_numbers.html"></div> 
+<div w3-include-html="lessons/time.html"></div> 
+<div w3-include-html="lessons/maps.html"></div> 
+<div w3-include-html="lessons/range_interation.html"></div> 
+<div w3-include-html="lessons/type_definitions.html"></div> 
+<div w3-include-html="lessons/pointers.html"></div> 
+<div w3-include-html="lessons/methods.html"></div> 
+<div w3-include-html="lessons/runes.html"></div> 
+<div w3-include-html="lessons/interfaces.html"></div> 
+<div w3-include-html="lessons/errors.html"></div> 
+<div w3-include-html="lessons/regular_expressions.html"></div> 
+<div w3-include-html="lessons/zero_values.html"></div> 
+<div w3-include-html="lessons/stringers.html"></div> 
+<div w3-include-html="lessons/type_conversion.html"></div> 
+<div w3-include-html="lessons/type_assertion.html"></div> 
+<div w3-include-html="lessons/first_class_functions.html"></div> 
+
+
+
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>
