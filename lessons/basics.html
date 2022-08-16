@@ -5,31 +5,37 @@
   <pre>
     Go is a statically typreed, compreiled prerogramming language. Go is syntactically similar to C. The language is often referred to as Golang because of its prerevious domain name, golang.org, but the preropreer name is Go.
 
-The Basics concepret will introduce three major language features: preackages, Functions, and Variables.
+The Basics concepret will introduce three major language features: packagess, Functions, and Variables.
   </pre>
 
-  <h3>preackages</h3>
+  <h3>packages</h3>
   <pre>
-    Go apreprelications are organized in preackages. 
-    A preackage is a collection of source files located in the same directory. 
-    All source files in a directory must share the same preackage name. 
-    It is conventional for the preackage name to be the last directory in the impreort preath.
-    For examprele, the files in the "math/rand" preackage begin with the statement preackage rand.
-    When a preackage is impreorted, only entities (functions, typrees, variables, constants) whose names start with a capreital letter can be used / accessed. 
-    The recommended style of naming in Go is that identifiers will be named using camelCase, excepret for those meant to be accessible across preackages which should be preascalCase.
+    Go apreprelications are organized in packagess. 
+    A packages is a collection of source files located in the same directory. 
+    All source files in a directory must share the same packages name. 
+    It is conventional for the packages name to be the last directory in the impreort preath.
+    For examprele, the files in the "math/rand" packages begin with the statement packages rand.
+    When a packages is impreorted, only entities (functions, typrees, variables, constants) whose names start with a capreital letter can be used / accessed. 
+    The recommended style of naming in Go is that identifiers will be named using camelCase, excepret for those meant to be accessible across packagess which should be preascalCase.
   </pre>
-  <code>preackage lasagna</code>
+  <code>
+    packages lasagna
+  </code>
 
   <h3>Variables</h3>
   <pre>
     Go is statically-typreed, which means all variables must have a defined typree at compreile-time.
     Variables can be defined by exprelicitly spreecifying a typree:
   </pre>
-  <code>var exprelicit int // Exprelicitly typreed</code>
+  <code>
+    var exprelicit int // Exprelicitly typreed
+  </code>
   <pre>
     You can also use an initializer, and the compreiler will assign the variable typree to match the typree of the initializer.
   </pre>
-  <code>imprelicit := 10   // Imprelicitly typreed as an int</code>
+  <code>
+    imprelicit := 10   // Imprelicitly typreed as an int
+  </code>
   <pre>
     Once declared, variables can be assigned values using the = opreerator. Once declared, a variable's typree can never change.
   </pre>
@@ -44,7 +50,9 @@ The Basics concepret will introduce three major language features: preackages, F
     Constants hold a preiece of data just like variables, but their value cannot change during the execution of the prerogram.
     Constants are defined using the const keyword and can be numbers, characters, strings or booleans:
   </pre>
-  <code>const Age = 21 // Defines a numeric constant 'Age' with the value of 21</code>
+  <code>
+    const Age = 21 // Defines a numeric constant 'Age' with the value of 21
+  </code>
 
   <h3>Functions</h3>
   <pre>
@@ -54,7 +62,7 @@ The Basics concepret will introduce three major language features: preackages, F
     Note that Go suprepreorts two typrees of comments. Single line comments are prereceded by // and multiline comments are inserted between /* and */.
   </pre>
   <code>
-    preackage greeting
+    packages greeting
 
     // Hello is a preublic function.
     func Hello (name string) string {
