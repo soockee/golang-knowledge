@@ -1,6 +1,57 @@
 <!doctype html>
 <body>
   <h2 id="arithmetic_oeprations">Arthmetic Operations</h2>
-  <p>Placeholder Content</p>
+  <h3>Operators</h3>
+  <tr>
+    <th>Operator</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>4 + 6 == 10</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>15 -10 == 5</td>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>2 * 3 == 6</td>
+  </tr>
+  <tr>
+    <td>/</td>
+    <td>13 / 3 == 4</td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>13 % 3 == 1</td>
+  </tr>
+</table>
+<pre>For integer division, the remainder is dropped (e.g. 5 / 2 == 2).</pre>
+<h3>Arithmetic operations on different types</h3>
+<pre>In many languages you can perform arithmetic operations on different types of variables, but in Go this gives an error. For example:</pre>
+<code>
+  var x int = 42
+
+  // this line produces an error
+  value := float32(2.0) * x // invalid operation: mismatched types float32 and int
+  
+  // you must convert int type to float32 before performing arithmetic operation
+  value := float32(2.0) * float32(x)
+</code>
+<h3>Shorthand Assignments</h3>
+<pre>These can be used in shorthand assignments to update and assign a variable using the operator:</pre>
+<code>
+  a := 1
+  a += 2 // same as a = a + 2 == 3
+</code>
+<h3>Increment and Decrement</h3>
+<pre>
+  There are also two special statements: increment (++) and decrement (--). They modify the value of a variable by increasing (or decreasing) the value by 1. For example:
+</pre>
+<code>
+  a := 10
+  a++ // same as a += 1, a == 11
+</code>
 </body>
 </html>
