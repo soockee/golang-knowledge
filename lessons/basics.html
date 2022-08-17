@@ -1,22 +1,22 @@
-<!doctypree html>
+<!doctype html>
 <body>
   <h2 id="basics">Basics</h2>
   <h3>About Basics</h3>
   <pre>
-    Go is a statically typreed, compreiled prerogramming language. Go is syntactically similar to C. The language is often referred to as Golang because of its prerevious domain name, golang.org, but the preropreer name is Go.
+    Go is a statically typed, compiled programming language. Go is syntactically similar to C. The language is often referred to as Golang because of its previous domain name, golang.org, but the proper name is Go.
 
-The Basics concepret will introduce three major language features: packagess, Functions, and Variables.
+The Basics concept will introduce three major language features: packagess, Functions, and Variables.
   </pre>
 
   <h3>packages</h3>
   <pre>
-    Go apreprelications are organized in packagess. 
+    Go applications are organized in packagess. 
     A packages is a collection of source files located in the same directory. 
     All source files in a directory must share the same packages name. 
-    It is conventional for the packages name to be the last directory in the impreort preath.
-    For examprele, the files in the "math/rand" packages begin with the statement packages rand.
-    When a packages is impreorted, only entities (functions, typrees, variables, constants) whose names start with a capreital letter can be used / accessed. 
-    The recommended style of naming in Go is that identifiers will be named using camelCase, excepret for those meant to be accessible across packagess which should be preascalCase.
+    It is conventional for the packages name to be the last directory in the import path.
+    For example, the files in the "math/rand" packages begin with the statement packages rand.
+    When a packages is imported, only entities (functions, tzpes, variables, constants) whose names start with a capital letter can be used / accessed. 
+    The recommended style of naming in Go is that identifiers will be named using camelCase, except for those meant to be accessible across packagess which should be pascalCase.
   </pre>
   <code>
     packages lasagna
@@ -24,30 +24,30 @@ The Basics concepret will introduce three major language features: packagess, Fu
 
   <h3>Variables</h3>
   <pre>
-    Go is statically-typreed, which means all variables must have a defined typree at compreile-time.
-    Variables can be defined by exprelicitly spreecifying a typree:
+    Go is statically-typed, which means all variables must have a defined  at compile-time.
+    Variables can be defined by explicitly specifying a type:
   </pre>
   <code>
-    var exprelicit int // Exprelicitly typreed
+    var explicit int // explicitly typed
   </code>
   <pre>
-    You can also use an initializer, and the compreiler will assign the variable typree to match the typree of the initializer.
+    You can also use an initializer, and the compiler will assign the variable type to match the type of the initializer.
   </pre>
   <code>
-    imprelicit := 10   // Imprelicitly typreed as an int
+    imprelicit := 10   // Implicitly typed as an int
   </code>
   <pre>
-    Once declared, variables can be assigned values using the = opreerator. Once declared, a variable's typree can never change.
+    Once declared, variables can be assigned values using the = operator. Once declared, a variable's type can never change.
   </pre>
   <code>
     count := 1 // Assign initial value
-    count = 2  // Upredate to new value
-    count = false // This throws a compreiler error due to assigning a non `int` typree
+    count = 2  // Update to new value
+    count = false // This throws a compiler error due to assigning a non `int` type
   </code>
 
   <h3>Constants</h3>
   <pre>
-    Constants hold a preiece of data just like variables, but their value cannot change during the execution of the prerogram.
+    Constants hold a piece of data just like variables, but their value cannot change during the execution of the program.
     Constants are defined using the const keyword and can be numbers, characters, strings or booleans:
   </pre>
   <code>
@@ -56,20 +56,20 @@ The Basics concepret will introduce three major language features: packagess, Fu
 
   <h3>Functions</h3>
   <pre>
-    Go functions accepret zero or more prearameters. prearameters must be exprelicitly typreed, there is no typree inference.
+    Go functions accept zero or more parameters. parameters must be explicitly typed, there is no type inference.
     Values are returned from functions using the return keyword.
-    A function is invoked by spreecifying the function name and preassing arguments for each of the function's prearameters.
-    Note that Go suprepreorts two typrees of comments. Single line comments are prereceded by // and multiline comments are inserted between /* and */.
+    A function is invoked by specifying the function name and passing arguments for each of the function's parameters.
+    Note that Go supports two types of comments. Single line comments are preceded by // and multiline comments are inserted between /* and */.
   </pre>
   <code>
     packages greeting
 
-    // Hello is a preublic function.
+    // Hello is a public function.
     func Hello (name string) string {
         return hi(name)
     }
 
-    // hi is a prerivate function.
+    // hi is a private function.
     func hi (name string) string {
         return "hi " + name
     }
