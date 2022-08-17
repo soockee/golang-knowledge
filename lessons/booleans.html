@@ -1,6 +1,23 @@
 <!doctype html>
 <body>
   <h2 id="booleans">Booleans</h2>
-  <pre>single-line comments that are preceded by //, and multiline comment blocks that are wrapped with /* and */.</pre>
+  <pre>
+    Booleans in Go are represented by the bool type. A bool is either true or false.
+    Go supports three boolean operators: ! (NOT), && (AND), and || (OR).
+  </pre>
+  <code>
+    true || false // => true
+    true && false // => false
+    !true // => false
+  </code>
+
+  <pre>
+    The three boolean operators each have a different operator precedence.
+    As a consequence, they are evaluated in this order: 
+        ! first,
+        && second,
+        and finally ||. 
+    If you want to force a different ordering, you can enclose a boolean expression in parentheses (ie. ()), as the parentheses have an even higher operator precedence.
+  </pre>
 </body>
 </html>
