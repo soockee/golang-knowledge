@@ -1,6 +1,80 @@
 <!doctype html>
 <body>
   <h2 id="comparison">comparison</h2>
-  <p>Placeholder Content</p>
+  <pre>
+    In Go, we can compare values using the equality and ordering operators. We have 6 of these operators:
+  </pre>
+
+  <table style="width: 100%;">
+    <colgroup>
+      <col span="2" style="background-color: #cacaca">
+    </colgroup>
+    <tr>
+      <th>Comparison</th>
+      <th>Operator</th>
+    </tr>
+    <tr>
+      <td>equal</td>
+      <td>==</td>
+    </tr>
+    <tr>
+      <td>not equal</td>
+      <td>!=</td>
+    </tr>
+    <tr>
+      <td>less</td>
+      <td><</td>
+    </tr>
+    <tr>
+      <td>less or equal</td>
+      <td><=</td>
+    </tr>
+    <tr>
+      <td>greater</td>
+      <td>></td>
+    </tr>
+    <tr>
+      <td>greater or equal</td>
+      <td>>=</td>
+    </tr>
+  </table>
+
+  <pre>
+    The result of a comparison is always a boolean value:
+  </pre>
+
+  <code>
+    a := 3
+    a != 4 // true
+    a > 5  // false
+  </code>
+
+  <h3>Equality operators</h3>
+  <pre>
+    The equality operators == and != check whether a value is equal to another or not, respectively.
+     We can use the equality operators on the majority of types in Go. 
+     Here are some common examples:
+  </pre>
+  
+  <code>
+    2 == 3 // false, integer comparison
+    2.1 != 2.2 // true, float comparison 
+    "hello" == "hello" // true, string comparison
+    'a' != 'b' // true, rune/byte comparison
+    </code>
+
+    <h3>Ordering Operators</h3>
+    <pre>
+      Ordering operators check if one value is greater than (>), 
+      greater or equal to (>=), less than (<) and less or equal to (<=) to another value. 
+      This kind of comparison is available for numbers, bytes, runes and strings. 
+    </pre>
+
+    <code>
+      2 > 3 // false, integer comparison
+      1.2 < 1.3 // true, float comparison
+      'a' > 'b' // false, rune/byte comparison
+      "Hello" < "World" // true, string comparison
+    </code>
 </body>
 </html>
