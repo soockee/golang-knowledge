@@ -1,6 +1,125 @@
 <!doctype html>
 <body>
   <h2 id="structs">Structs</h2>
-  <p>Placeholder Content</p>
+  <pre>
+    In Go, a struct is a sequence of named elements called fields, each field has a name and type.
+    The name of a field must be unique within the struct.
+    Structs can be compared with classes in the Object-Oriented Programming paradigm.
+  </pre>
+  <h3>Defining a struct</h3>
+  <pre>
+    You create a new struct by using the type and struct keywords, and explicitly define the name and type of the fields.
+    For example, here we define Shape struct, that holds the name of a shape and its size:
+  </pre>
+  <code>
+    type Shape struct {
+      name string
+      size int
+    }
+  </code>
+  <pre>
+    Field names in structs follow the Go convention - fields whose name starts with a lower case letter are only visible to code in the same package, whereas those whose name starts with an upper case letter are visible in other packages.
+  </pre>
+  <h3>Creating instances of a struct</h3>
+  <pre>
+    Once you have defined the struct, you need to create a new instance defining the fields using their field name in any order:
+  </pre>
+  <code>
+    s := Shape {
+      name: "Square",
+      size: 25,
+    }
+  </code>
+  <pre>
+    To read or modify instance fields, use the . notation:
+  </pre>
+  <code>
+    // Update the name and the size
+    s.name = "Circle"
+    s.size = 35
+    fmt.Printf("name: %s size: %d\n", s.name, s.size)
+    // Output: name: Circle size: 35
+  </code>
+  <pre>
+    Fields that don't have an initial value assigned, will have their zero value. For example:
+  </pre>
+  <code>
+    s := Shape{name: "Circle"}
+    fmt.Printf("name: %s size: %d\n", s.name, s.size)
+    // Output: name: Circle size: 0
+  </code>
+  <pre>
+    You can create an instance of a struct without using the field names, as long as you define the fields in order:
+  </pre>
+  <code>
+    s := Shape {
+      "Oval",
+      20,
+    }
+  </code>
+  <pre>
+    However, this syntax is considered brittle code since it can break when a field is added, especially when the new field is of a different type.
+    In the following example we add an extra field to Shape:
+  </pre>
+  <code>
+    type Shape struct {
+      name        string
+      description string // new field 'description' added
+      size        int
+    }
+    
+    s := Shape{
+        "Circle",
+        20,
+    }
+    // Since the second field of the struct is now a string and not an int,
+    // the compiler will throw an error when compiling the program:
+    // Output: cannot use 20 (type untyped int) as type string in field value
+    // Output: too few values in Shape{...}
+  </code>
+
+  <h3>"New" functions</h3>
+  <pre>
+    Sometimes it can be nice to have functions that help us create struct instances.
+    By convention, these functions are usually called New or have their names starting with New, but since they are just regular functions, you can give them any name you want.
+    They might remind you of constructors in other languages, but in Go they are just regular functions.
+
+    In the following example, one of these New functions is used to create a new instance of Shape and automatically set a default value for the size of the shape:
+  </pre>
+  <code>
+    func NewShape(name string) Shape {
+      return Shape{
+        name: name,
+        size: 100, //default-value for size is 100
+      }
+    }
+    
+    NewShape("Triangle")
+    // => Shape { name: "Triangle", size: 100 }    
+  </code>
+  <pre>
+    Using New functions can have the following advantages:
+
+    validation of the given values
+    handling of default-values
+    since New functions are often declared in the same package of the structs they initialize, they can initialize even private fields of the struct
+
+  </pre>
+  <h3>new builtin</h3>
+  <pre>
+    Another way of creating a new instance of a struct is by using the new built-in:
+  </pre>
+  <code>
+    s := new(Shape) // s will be of type *Shape (pointer to shape)
+    fmt.Printf("name: %s size: %d\n", s.name, s.size)
+    // Output: name:  size: 0
+  </code>
+  <pre>
+    In this example, new creates an instance of the struct Shape with all the values initialized to the zero value of their type and returns a pointer to it.
+
+    More often than not, you will not see new instances of structs created using the new builtin.
+    Always prefer using a struct literal, a custom New function or any other function provided by the package that can help you build a struct.
+    Use the new builtin to create new instances of structs as a last resort.
+  </pre>
 </body>
 </html>
