@@ -21,10 +21,9 @@
 
   </code>
 <pre>
-We can not modify the 3rd party code.
-But we still want to do something else whenever we execute the 3rd party Execute function.
-So we "inject" or "decorate" the function by defining the "depenency" as parameter and wrapping the expected 3rd party function 
-, effectivly combining it with our custom logic. 
+	We can not modify the 3rd party code.
+	But we still want to do something else whenever we execute the 3rd party Execute function.
+	So we "inject" or "decorate" the function by defining the "depenency" as parameterand wrapping the expected 3rd party function, effectivly combining it with our custom logic. 
   </pre>
 <code>
 	// 3rd party stuff
@@ -56,65 +55,65 @@ So we "inject" or "decorate" the function by defining the "depenency" as paramet
   </code>
 
   <pre>
-  Another use-case is struct configuration.
-  Assuming we provide a library and we want to provide an easy way to configure the behaviour.
-  We can utilize this pattern.
-  The user do not need to provide configration, but he can if he wants to.
+  	Another use-case is struct configuration.
+  	Assuming we provide a library and we want to provide an easy way to configure the behaviour.
+  	We can utilize this pattern.
+  	The user do not need to provide configration, but he can if he wants to.
   </pre>
 
   <code>
 		
-type OptFunc func(*Opts)
-
-type Opts struct {
-	maxConn int
-	id      string
-	tls     bool
-}
-
-func defaultOpts() Opts {
-	return Opts{
-		maxConn: 10,
-		id:      "default",
-		tls:     true,
+	type OptFunc func(*Opts)
+	
+	type Opts struct {
+		maxConn int
+		id      string
+		tls     bool
 	}
-}
 
-func withTLS(opt *Opts) {
-	opt.tls = true
-}
-
-func withMaxConn(n int) OptFunc {
-	return func(opts *Opts) {
-		opts.maxConn = n
+	func defaultOpts() Opts {
+		return Opts{
+			maxConn: 10,
+			id:      "default",
+			tls:     true,
+		}
 	}
-}
 
-func withID(s string) OptFunc {
-	return func(opts *Opts) {
-		opts.id = s
+	func withTLS(opt *Opts) {
+		opt.tls = true
 	}
-}
 
-type Server struct {
-	Opts
-}
-
-func NewServer(opts ...OptFunc) *Server {
-	o := defaultOpts()
-	for _, fn := range opts {
-		fn(&o)
+	func withMaxConn(n int) OptFunc {
+		return func(opts *Opts) {
+			opts.maxConn = n
+		}
 	}
-	return &Server{
-		Opts: o,
-	}
-}
 
-func main() {
-	fmt.Printf("default: %+v\n", NewServer())
-	custom := NewServer(withTLS, withID("custom"), withMaxConn(99))
-	fmt.Printf("custom: %+v\n", custom)
-}
+	func withID(s string) OptFunc {
+		return func(opts *Opts) {
+			opts.id = s
+		}
+	}
+
+	type Server struct {
+		Opts
+	}
+
+	func NewServer(opts ...OptFunc) *Server {
+		o := defaultOpts()
+		for _, fn := range opts {
+			fn(&o)
+		}
+		return &Server{
+			Opts: o,
+		}
+	}
+
+	func main() {
+		fmt.Printf("default: %+v\n", NewServer())
+		custom := NewServer(withTLS, withID("custom"), withMaxConn(99))
+		fmt.Printf("custom: %+v\n", custom)
+	}
   </code>
 </body>
 </html>
