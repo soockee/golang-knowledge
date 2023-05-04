@@ -1,7 +1,7 @@
 <!doctype html>
 <body>
-  <h2 id="decorator">Decorator Pattern </h2>
-  <h3>Decorator Pattern</h3>
+  <h2 id="func_ops">Functional Options Pattern</h2>
+  <h3>Example with 3rd Party Lib</h3>
   
   <code>
 	// 3rd party stuff
@@ -20,12 +20,12 @@
 	}
 
   </code>
-<pre>
+  <pre>
 	We can not modify the 3rd party code.
 	But we still want to do something else whenever we execute the 3rd party Execute function.
-	So we "inject" or "decorate" the function by defining the "depenency" as parameterand wrapping the expected 3rd party function, effectivly combining it with our custom logic. 
+	So we "inject" or "decorate" the function by defining the "depenency" as parameter and wrapping the expected 3rd party function, effectivly combining it with our custom logic. 
   </pre>
-<code>
+  <code>
 	// 3rd party stuff
   	type ExecuteFn func(string) 
 	func Execute(fn ExecuteFn){
@@ -53,6 +53,9 @@
 		}
 	}
   </code>
+
+
+  <h3>Example Struct Configuration</h3>
 
   <pre>
   	Another use-case is struct configuration.
@@ -115,5 +118,11 @@
 		fmt.Printf("custom: %+v\n", custom)
 	}
   </code>
+  <pre>
+	What about options that are hard to set by default?
+	This could be database connections.
+	Check out: <a href="https://www.milanjovanovic.tech/blog/how-to-use-the-options-pattern-in-asp-net-core-7">dave.cheney's blog</a>
+	or : <a href="https://www.youtube.com/watch?v=MDy7JQN5MN4"> The Most Efficient Struct Configuration Pattern For Golang </a>
+  </pre>
 </body>
 </html>
