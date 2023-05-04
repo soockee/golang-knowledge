@@ -1,0 +1,58 @@
+<!doctype html>
+<body>
+  <h2 id="Decorator">Decorator Pattern </h2>
+  <h3>Decorator Pattern</h3>
+  
+  <code>
+	// 3rd party stuff
+  	type ExecuteFn func(string)
+	func Execute(fn ExecuteFn){
+		fn("FOO", "BAR", "BAZ")
+	}
+
+	// our program
+	func main(){
+		Execute(myExecuteFn)
+	}
+  	type executeFn func(string)
+	func myExecuteFn(s string){
+		fmt.PrintLn("my ex func", s)
+	}
+
+  </code>
+<pre>
+We can not modify the 3rd party code, therefore we want to do something else whenever we execute the Execute function.
+
+  </pre>
+<code>
+	// 3rd party stuff
+  	type ExecuteFn func(string)
+	func Execute(fn ExecuteFn){
+		fn("FOO", "BAR", "BAZ")
+	}
+
+	// 	
+	func main(){
+		s:= &Store{}
+		Execute(myExecuteFn(s))
+	}
+	type DB interface{
+		Store(string) error
+	}
+	type Store struct{}
+	func (s *Store) Store(s string){
+		fmt.PrintLn("storing into db", s)
+	}
+  	type executeFn func(string)
+	func myExecuteFn(db DB) ExcecuteFn{
+		return func(s string){
+			fmt.PrintLn("my ex func", s)
+			// injected db which is good
+			db.Store(s)
+		}
+	}
+
+  </code>
+
+</body>
+</html>
